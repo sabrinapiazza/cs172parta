@@ -2,7 +2,7 @@
 
 
 from queue import Queue
-#from urllib.parse import urljoin, urldefrag
+from urllib.parse import urljoin, urldefrag, quote 
 from bs4 import BeautifulSoup
 import requests
 import os
@@ -41,10 +41,38 @@ while not frontier.empty() and count < 1000:
     with open(f"pages/page_{count}.html", "w") as save:
         save.write(html)
     soup = BeautifulSoup(html, 'html.parser')
-    for link in soup.find_all('a'): #ask ta 
-        print(link.get('href'))
+    for link in soup.find_all('a'):
+        #print(link.get('href'))
         href = link.get('href')
-        if href and href not in visited:
+
+        if not href:
+            continue
+
+        # join urls
+        href = urljoin(curr_url, href)
+
+        # remove bookmakrs #main
+        href, _ = urldefrag(href)
+
+        # sorts out only links with http
+        if not href.startswith("http://"):
+            continue
+
+        # removes self paths 
+        if href.rstrip("/") == curr_url.rstrip("/"):
+            continue
+
+        # no pdf no pictures 
+        bad_extensions = (".pdf", ".jpg", ".jpeg", ".png", ".gif", ".svg", ".webp")
+        if href.lower().endswith(bad_extensions):
+            continue
+
+        # invalid characters in urls to avoid MalformedURLexception
+        href = quote(href, safe=":/?=&%") 
+
+        # ensures there are no duplicates
+        if href not in visited:
+            print("clean url:", href)
             frontier.put(href)
             visited.add(href)
 
