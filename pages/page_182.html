@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><title>UCRiverside | Login</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <link rel="stylesheet" type="text/css" href="/cas/webjars/normalize.css/8.0.1/normalize-112272e51c80ffe5bd01becd2ce7d656.css" /><link rel="stylesheet" type="text/css" href="/cas/webjars/bootstrap/5.3.8/css/bootstrap-grid.min-895b9494c7178ac12ad9c56d81305665.css" /><link rel="stylesheet" type="text/css" href="/cas/webjars/material-components-web/14.0.0/dist/material-components-web.min-9da9033e8d04504fe54b3dbb1298fd78.css" /><link rel="stylesheet" type="text/css" href="/cas/webjars/mdi__font/7.4.47/css/materialdesignicons.min-2c83c4bce691e18f82409f87b2bf84e4.css" /><link rel="stylesheet" type="text/css" href="/cas/webjars/datatables/2.3.2/css/dataTables.dataTables-86c98d6ce5aa289ccf4492ac3a785fad.css" /><link rel="stylesheet" type="text/css" href="/cas/css/cas-e20361ed98ef0bbbf24624f4f749d4db.css" /><link rel="stylesheet" type="text/css" href="/cas/css/custom-c14be2cfb07365fa4f0bb7715fedffae.css" /><link rel="icon" href="/cas/favicon-d3ced4c63f242d968d3ba948f0233d85.ico" type="image/x-icon"/><script type="text/javascript" src="/cas/webjars/jquery/3.7.1/jquery.min-2c872dbe60f4ba70fb85356113d8b35e.js"></script>
+
+</head>
+
+<body class="cas-body login">
+<a class="skip-main" href="#content">Skip to main content</a>
+<script type="text/javascript" src="/cas/webjars/jquery/3.7.1/jquery.min-2c872dbe60f4ba70fb85356113d8b35e.js"></script>
+<script type="text/javascript" src="/cas/webjars/datatables/2.3.2/js/dataTables.min-dab1b6e68f24d0f5abebd80e86fba3d0.js"></script>
+<!--
+<script type="text/javascript" th:src="@{#{webjars.headmin.js}}"></script>
+<script type="text/javascript" th:src="@{${#cas.theme('cas.javascript.file')}}"></script>
+--><script type="text/javascript" src="/cas/js/cas-cd46228f2a9b608731f0c9dacfb9758c.js"></script>
+<script type="text/javascript" src="/cas/js/material-b55ff53584b5e775934a54f8a5dd3ba8.js"></script>
+<script type="text/javascript" src="/cas/js/custom-63dd40a49197131d92472a1288f662f6.js"></script>
+<div class="container" id="container">
+    <header role="banner" class="header d-flex justify-content-center">
+    <h1>
+        <a href="https://www.ucr.edu/" class="logo-image" title="U C R Login Page" tabindex="0">
+            <img src="images/ucr-logo.png" alt="UC Riverside - Central Authentication Service"></a>
+        <span class="sr-only">University of California - Riverside Login Page</span>
+    </h1>
+</header>
+    
+    <main id="content">
+        <div>
+            <div id="loginForm">
+                <div class="card">
+                <div class="card-body">
+                    <form method="post" id="fm1" class="form" action="login">
+                        <section class="field">
+                            </section>
+
+                        <div class="flex-column xl-flex-row">
+                            <section class="field w-xl-50">
+                                <label for="username">UCR NetID:</label>
+                            
+                                <div>
+                                    <input class="form-control required" id="username" size="25" type="text"
+                                        accesskey="u"
+                                        autocomplete="off" name="username" value="" /></div>
+                            </section>
+                            
+                            <section class="field w-xl-50">
+                                <label for="password">Password:</label>
+                            
+                                <div>
+                                    <input class="form-control required" type="password" id="password" size="25"
+                                        accesskey="p" autocomplete="off" name="password" value="" /><span id="capslock-on" style="display:none;">
+                                        <p>
+                                            <span >CAPSLOCK key is turned on!</span>
+                                        </p>
+                                    </span>
+                                </div>
+                            </section>
+
+                        </div>
+                        
+                        <section class="field">
+                            </section>
+
+                        <input type="hidden" name="execution" value="9edccd89-b483-4cea-bfa9-c2a0f3f0f30b_ZXlKaGJHY2lPaUpJVXpVeE1pSXNJblI1Y0NJNklrcFhWQ0lzSW10cFpDSTZJakprT0dJME1USTFMVGsxWW1NdE5HWTBNQzA0Tm1JNExUVTVObVl3TWpVeU5XSmlPQ0o5LjVQQTBBZXhqV1MycHV5amttanJtamZEQTdYelVLdjdqTDI5VHdRVmc2U2RtbGFmSzhCYzlheklFazVCa3ZZQVVBd1BUOUVNUTRfSDJ1cW9lZUdkMmxTZWdpLUFDNXBVYXJOU2NNcWczVVZ0Z0FoTHZXMlRNd1VjSkY3VUJpYnVJbmU4SUV2bm8wY0l0UzdGMGhBNVcyMGt0NHEyLXp3Z0EyU29qQlBZZnZCLXBNUlRYYWg2S21RVDZKTzhkMGloZ2t6NThCY0ZXWWxsWUotel8xMGJ4MV9URGc0bkNVR1d6S0x4c1ViYzE3MzZITFY1djNaa1QweDNjYmJBTGI4LWN2LXY5bnExYThGaDVxS3Nrb3BqQUt6TERZN3J1a0w2ME5wOVJmTWZBUWlsZlI3ellVWXdhaloyTzN5bF9hMDczZXhGeXZHYlNEalJPbWVfalo0TkszcE1ENGZuWEJsVng2aUZrUDV4UWpZemRkRVV0bXFDWnJqOXFhSF9sUVNTck1GczhDSy0zVV9GTEZxb2tSNFY3SlhWVlBySDNGM1Riek85M29sd1BUVENMZDVyckFVQnBDOHVUa3FkbVR0eFNFd1hNVG5za0thbTJ0V1oyUzRFaFJ4R1MweDBwaXZncm5QQmdTdmszb01MNjNTMkZHd2ROTUlrbEFFTUlJc2kyWWR2NUpkOHlaalNPVzU2OXAzcTByWlNnYTlLQmtjdzJYelpsMTFwNHk1aHhpeXJPVTB2NExvOG0tM01IVFowWGhXbDN5Q1pud3ZsVkx5czZxTmFsQ002c0twVEU4Wl8tQmhPdmRYU1hYNnBqZUM5SVF5dTBYVV80VGJudXFodXlKRGVVMlRoUVhsSHViUUMtV0pYZ05UWkpUVEJZMGthMS1SQ2ZMVnhHb3FPZFFwN21BWmJmeHNHUm5SZVVXTDdqaWRSamJEMGRNWUtyem5LMV93b2dBZmtRNlZXOU03NWNqbHZabEVPWEhLYzNPakJpclM4YWc5N1JIai01dnU3RUlHUU9ycVM5clNLQ1p1U3VJUTZmcFdJeDlRUk9mMl9kX0Y5UGI2c2hFa25QM2JMcTFzeE5uMk9xY18wUzhjcG5sTzBOb0FrVDJmZEo5TWUzSHhURXBwRFRwS0tqdTM0a0pCblZvY29TUlBDcThIa1BkdXJURmxRLXoxbVpsV1RXYWRlWTgxSG1fdEFBNk55dzJvVTMyX0pqMGVLTjZGQ3VteTBHRDlyYzJIWFVUeEEwVGw1RFRycTRVRTFpUEpVSXlWQXNaQzNYSUxxUTIzWVAtVmNSamxvMGZQVGxVQmNhUm1Qdm5xZVNPclh3eUdaMkZOVnRtRzdHbElKNlNnTVBjeG1DUEtremJ3enJrbnpQUW9GdlVRZ1p5eTAzdnZVdUFVd2tDXzZGZnF6Ul9HUXIzckw2WGFFdDRTamdmb29fZUl2WXBTNldVQlFXWVBhNjdIZDRFMjZ6OHNfOHRMdUdzU09sRFpNODFLenVuUG5UQW5sVkplMkdoaGxJczBtRzdsODJVZ1p6WkNaVzBnb0tCYTdVNVEybzdqZ3VRNGZMM19CTENqZ3BzYVhXeVRJNEVuVXFiYWNoekV6NDJRZzNYampiR09tZThPLWxMM2RvcUJSMGVLV2FSelhRQUJKRXpvTmxUUVdXd0RHTEhhZ3ZMenJkbzNfZVA0b2pZUmFfSkN4WXBUM2lGX0NCTEg4SFhJSmZnVzhrYTZHYXlMMjdBb2JnSkVzUXRMNGVvZGVIOGNKNXp2NVR3OFZ3QWVPV1RLMUFQb0VSMDNGWWxkUDN0MW56Rm1oWWRnTHp6TV9qNFpkcDBJSFJMM0M1cGdWMWQ3clJ4SUdUTUZHZUNjMU5yVUdfSkluLTZiR1Y2TEw4djd2eU1kLTBEb1o1VVpxaU9acWh5bUg3WEZNb0k0WWRuN19CZHZxTFNhaHFoM1ZTU3pzYUFOaHNGLTMyS1RINWxzZkVhR1NfSWNDOGJsUlRtejVkYkNsZ1RtbDFaOXdnT2xQVzBzUFVWN25PREtqbE55bGc2RXhBdGlmSEJDSm9vWE9pMVRiQm01NDNDZ29CdDlwUkdxM2R2X3FKRXhuTVJhUFk1MFVVWW5za2c3MjBSVXo2MDd4bGs3MGE0czFyUE9xaVE3RXlmSjBuczMtOGFvSUh2by1FTG9WVF9UeG5CRXM0MjNnQjFxVk42enBtdnJtTXRSUE9SOTlITGZ2WFRwc3U2Q19PTWhKc2dkWFNyN0g2YWg0SnFRemxwcmZqREJCTWdRNExsVFhhUmt2TnVGY09LTFRZWDN6SEhEVGt3aWtsZ1JPWDRZMndraUd0U2Y2UHVRUHdVZXdHRkFnbm1JQ0FJYU91VWJQb0tGTGJCRndMUlRIbjZIQzVDVDlGYzFlV285c1J6QlJMOE1ka3V4aEhfWW9UWDdLY3hJTlZqTE4tb21lZWpOMUFTT0VhVnZ2TzRUc21IamhNc1ZMbTQ0Ry13NHhXdFhHdVotbWtMbVFON1dId3BkS3cwV0FmN0F6YjFfam1DYWk2azM2V3J5NnNON3g2VUw4eXVfSnhLeFZwZHpzZTFQeUFVZlFkeC1RcVZqTDA0b1VxTlpMTkVQVjhOalV4bkRNbjhnU05qdE5xdkFxekNtdXNacU41TG5QdU9SZ1Q1R3d6N0pObXhCSUxPS2VVajFVYTcxOE1wZlRSdmNaanFEZHgzZVk2azJiZUZGOC1OODRFOGNDc2o2XzlodThKZ1hnZmlnZm1mYzFVU01wdUtROFFGWWJadFd3ekJXT29nbm0yY1RYQ01HdUVPR1JmYlRVQXdOMFFXUGJscGRCV3N5a1BwYk16Mlo2azJlZXJicUYwVzhRZUg0OEJhN3JrYWF6RURoZk5KSlJwTndzSjhvRG9DNzlKY3pTbkRsN21vRjBvcXh2UG9OQklBX0VLM3JyUjc0bGR6b1h3cjNZcnpBNjFWVVpaeHRWeXUwbVcwNGNXRmVjSkwwQ2Q0VnVqc0h3ZjRvQjZETmNqU094LUhCNzc4ZWhaMVg4cVJYU19aZjBWT2gyNF9famNjMDJNVmhVRXI2cXEweHZSU3pTbnRwM19BbUN1c0lPN0RBSEJGZUdyTmVYUTUyQnNPS2tGUFhvQ0dLZWFMM0xPeENlT2Q4TlJfQ0NHQTBoUGtFYm05SFNjRlRrN3cyUVlOeWRwcXVmSXNhRHdmekFFcGltRUNXODFoZmtMUUNKUGNzUzBrUkR1UGRYdUdpd2JiN2IxRjZJaU5BLWR0SUZyWHpfUm9jaGJuUHZZbGVvcVM0bjZuUVJmWGpjd2RRZ0Y3VFFsTGdIT01idGNoMGE5aVdQLXRvXzhKSDR4SU93VDNGWVB2Nk9xZldsRDl5TVVXblNjX3pHSzVnMWFfdGV2YkRyTTdTMllBWjJJcXVWY2R3ak9zWE4tSDVtdXVmRGFrUzNLeVJOSm9yRk82TW1qQ1VJODdsaHdDakZTRUtzeXFmTVJnOFI0RTdzS1NPOFVrTHBhYXhpWjF3d0F1ODBzd3hyUXpFWjBnUG9BdUF1NjMwTHBkUEJ0MXVlVGdMN3g4Q2pOX3U5X3YzT0VpNXhYTmpMRE02SXVMME5hcHhqd2tqdUdzdlNjUVdQMGV5SkdkMENDUWxfTGFVM2pQY1UtQnd2bWg1Y1pSMzRmNkFrQ1B6a0ktRVk3LU1mYW1DV04wTlpqakNQaXl2MW1QQVZYay1mTDJBZ0ZwaVVmMUxDa2Y5Ym5ONGowaE1JZUcxUDdCZXNOaUt6M2F4c3FJWUtoRG9RaFlpVU1xTXFKMXc0VnQ1R1NhTXR4MUVSeDZnRy1LMU5oYjhWWW1OV25mLXNPdEJQVUZaM0dnQnE3TDhrMVEzc2VwSlpNS3IzNmItam90STZtZGxpendTOXFBSjVMcXdSdDNZWUN6SVE3ZU4yZDdBSWxUNHFtQzhtNXhMb1VwdFV4Q2lsR2tkY3FYTWVvY2ZzQThXbWZ3dU5qOEkyQ19aM0tNQnNLTDFTU09GOFNwNllFQ0JGQndmQXV5a1A3Vm56WE9LaEdCZnY4SEREYlBocEQ4ME5IY0NQZjNiNkw5MENXVXdRaHIyWFFXb0JjWTFfRnNFQnpoY0RaRDNMaHBNYk1UeGlNcXNBZXhfX1pJQkx3RWVfczVFczcwYnZyQ2xhbVozNGxxbDBDUFpBXzZDa2NvYVdBam11UV9UZnVmYXAwdGYxaG9yLVNCNjVqYkN6WXBXX3FESmp3clVVQTZVRzRsOFlHMGphMkxuYnA3bjRXRU1HWkVMNmJJMmlHT2drOUpyUU96d1lwb3NHMlpEM1V0WWhBcHZQVTgtS0tBYzJmUEtmQUVIM1lYNHRDVTVGcUsxN3VveVp1VS1ORV9lU3FBcHprUlhaeTRhQWRVR3VVdl8yd1FrR3lrbDY1ZFd1OHFjLXEzVU8zSzlXTEYyOFg4SWhWN01paGdXeXh0ejVza083OHM5V1E1UXV4TVZlNnRreUdlM2M2R2d4N2gxY2xJNkxDNWtXU3ZlZm5kT1g3LWpUNFJlQ01hSlVNVFRFQlQtWkowaU5Ma0RDRmt3cnBTUWE2WWRuOGtkVkhZLXNUOHNkaXFfZmFvcVlETW9zMXRnQU1xMkt2Q0MyT042djJraFFhT0NQNzl0V3k5cVFLMDRqSHdlcTFFQ3FRakItTTRlQkRfN0tJZDRUVjdIMy0wM01oRTg2TGxnYUZHdUV0N2FfZkk1MFFzdXhUQnQ1OGRUQUNtUHhyWE5fNmJqWDRqUG0yQXJHbkYyR0tkdjVXaXRIdXUzT1dZYVdic2drZlpvQkRYQnkzeE01TlBJTVdJWmR0eU5XYzN3N0FNWFVFUE52Y3JvRHJZVjBkNU9pdkJLR194dUYtTVNPRjQ5WkY4U01HTHVnM2NCRHNYa0FOZ3o0TDVEbW90TnpscDdkaWlNZ1M2V0FSQkV0MHczUDRzS2twZ3I5T21ySkJoSXhjbUpnajJHQkxYNjJXV1I4UXBCbDdnTHdCejdqemFxSUlHRDBlUGZzVkVQZFpMamhPTGlBWldIZ0RfeGtiMlZhdFJsVUt3TjVYVzZ2dWJJVDN2aGhpTW8wTTdINnlnRUZSZzc1ZUliSldRV2JPUG9obFNiSHNEdTB1aUh1dFNod3Jwblc4N3FYNzhFOVd3c1lva0hJdklYWkUtSW9YR1BobmF0LVVTSWZhT2lZT3dzbmsxU1Rrci1VQm9mcVF0dlR0YWNERHQ4cjkxYXdLZ0c0dEYySmJPei1WQTI4UVJENWQ4TGRPcWozWEM5dkk2U2xhMWZBbXhNWElhZGJCU3JFamtUUzBDUXJON3JmQkVmbjNOZXkxRVNlcndSNFcxWHkxdkxjc2UzU0pFZG45QUhjMktiTlBnbXpvS2lxVHVqNEs5eHVWb1VMMTdKLTA4MGtyX0lFZHZRRkI5eHE4OHJOT3h1SVFfeVUtQlpacC1rRlo4bG1HdUxJT25PSHZFUXcxVkpGNFR6Q2pXdEo3WEdkZnlKTVIxQmpPalBNSFR3VVFWVUY5Xy13djNzNnNkWUYyQUIteTFEZ3dLQ2ZuRTM3Ri00aW5saGhyM183TTY3b2xJdndxTVlYblJIVHhJMzR2b1EwdUczY2NEcnAtdURYaFNEZ2U0eEhGWF9jVVhydEFBZ1VrNTdZYjN3QjdHOUZxWGFMNTVkZU1BUXlpRDNKWVZpMWZza0V3MjViY1U2bW1IVTJ4d3RCUjJBNVB4Z2FZa0ZoWE9WbkVZRWtTTjhZVUI4QVRZcDNGSTJhbHRfQndjV3hQNlQyRVJVLTdJbS0wRlZyNy1oSW1XbkxNSklKR0hnRThzQndRT2xGYllISGsxWkdPRllXQmliVDVTYkNFMm1CdWhOTUJnV1BjOFJlWnJoVDlfWkt4Z2FMSGV0SndBSjNhYUZ1VDVQNzF4OGdmSGhlYTdxM01XN2k5eUZBTmZ2NEoyMjJ5QkhjQ1RlbU9HQ2pwWWlDZHdBX2dqakNmUkRuaEYyclNiZDlBcVQ0S0lwUzhtQVh2R2Zna2lReGxlcVU1Qk5ZZkFqSUpNM2s2UVpyOC1MRHJlbFpFTks5dGhUZTE3N2hiRkdrbElSbU5ncUZHN0c1aGhfSXVHWTExSDNWSnYtUU5acS1uS0NqbXVFYjJwZ3BQOFhrWmpIaXk0YVpWQ3BwbDY0V2hsV2NxYnFLQUNmbTJQbWtFTjl5eC1MaVQxRFVxcDZoSnFrZ2NWRmFtRDZjLUg0NlM2Qk1xSjBZYmpPWXNLRVZfZHlHNHNEOUczLWtSeVdDZUFJN1B1MzNqTEFlWGpabXpabDZzTlZ3c1NyVTNuWVJ2X0dkUm5XdkRMTU91T0o0MDJ4djFhOUZzTGE1el9RTVZVVWFFLThTeGJpaVhJNXZwbXRmSm5Ea2tlVzlCNl9hSnhqVXh0YUdOeGxLeEVuNDdYNnVIaWJyZjU1VnlKYXhqMi14STBmRWE4VWtZaE1HRWtwOGJXZzNqUXVzV00yQ1hsTHl2TWhNX2pkUUFiZUR1cjJvaEotSHdyY2wzLUdRYV95bjRwUnYyWkY2by56X20xT1RPLU9JaHRBNlk0aldpOVQweGFJT29zVXd6YnpuZWhjMkVKaTBLcGp3X0ZwWUY0b0U0YkJFa0pUczMtMVp4QVZ2WWRSdE0yaGRWVWQxdzV5dw=="/><input type="hidden" name="_eventId" value="submit"/><input type="hidden" name="geolocation"/><div class="field btn-field">
+                            <button class="btn btn-block btn-submit"
+                                name="submit"
+                                accesskey="l"
+                                type="submit"
+                                value="Sign In">Sign In</button>
+                        </div>
+                        
+                        </form>
+
+                    <div id="pmlinks" class="flex-column xl-flex-row flex-column-center">
+        <a href="https://myaccount.ucr.edu/app/home/passwordreset" tabindex="0">Forgot your password?</a>
+        <a href="https://ucrsupport.service-now.com/ucr_portal?id=kb_article_view&amp;sys_id=f17d5ca01bade91063c62fc02a4bcb2b" tabindex="0">Learn about MFA</a>
+        <a href="https://its.ucr.edu/support" tabindex="0">Need help?</a>
+    </div>
+
+                    <script type="text/javascript">
+                        /*<![CDATA[*/
+                        var i = "One moment please..."
+                        var j = "Sign In"
+                            /*]]>*/
+                            $(window).on('pageshow', function(){
+                                $(':submit').prop('disabled', false);
+                                $(':submit').attr('value', j);
+                            });
+                            $(document).ready(function () {
+                                $("#fm1").submit(function () {
+                                    $(":submit").attr("disabled", true);
+                                    $(":submit").attr("value", i);
+                                    return true;
+                                });
+                            });
+                    </script>
+                </div>
+            </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+</body>
+</html>

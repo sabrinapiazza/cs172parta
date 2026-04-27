@@ -4,6 +4,7 @@
 from queue import Queue
 from urllib.parse import urljoin, urldefrag, quote 
 from bs4 import BeautifulSoup
+from compliance import ComplianceManager
 import requests
 import os
 
@@ -12,6 +13,9 @@ frontier = Queue()
 visited = set() 
 seed_list = []
 os.makedirs("pages", exist_ok=True)
+
+# used for robots.txt check - Pramika 
+compliance = ComplianceManager()
 
 #grabbing all the urls from the seed.txt file
 with open("seed.txt", "r") as file_urls:
@@ -33,13 +37,32 @@ for i_url in seed_list:
 count = 0
 while not frontier.empty() and count < 1000:
     curr_url = frontier.get()
+
+    # --- ROBOTS.TXT CHECK --- Pramika
+    if not compliance.can_fetch(curr_url):
+        print(f"Skipping {curr_url} (Blocked by robots.txt)")
+        continue
+
     try:
-        html = requests.get(curr_url).text
+        response = requests.get(curr_url, timeout=5)
+        html = response.text
     except:
         continue
 
-    with open(f"pages/page_{count}.html", "w") as save:
-        save.write(html)
+    # --- META TAG CHECK ---
+    meta_rules = compliance.check_meta_tags(html)
+    
+    # If 'noindex', we don't save the file
+    if not meta_rules["noindex"]:
+        with open(f"pages/page_{count}.html", "w", encoding="utf-8") as save:
+            save.write(html)
+            count += 1 
+
+    # If 'nofollow', we don't extract links from this page
+    if meta_rules["nofollow"]:
+        continue
+    #------------------------------
+
     soup = BeautifulSoup(html, 'html.parser')
     for link in soup.find_all('a'):
         #print(link.get('href'))
@@ -75,8 +98,6 @@ while not frontier.empty() and count < 1000:
             print("clean url:", href)
             frontier.put(href)
             visited.add(href)
-
-    count += 1 
 
 
 #sabrina
