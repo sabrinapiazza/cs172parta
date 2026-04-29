@@ -52,8 +52,10 @@ for i_url in seed_list:
 
 #while the frontier isn't empty & max_count < threshold,
 count = 0
-while not frontier.empty() and count < 1000:
-    curr_url = frontier.get()
+while not frontier.empty() and count < max_pages:
+    # curr_url = frontier.get()
+    curr_url, hop = frontier.get()
+
 
     # --- ROBOTS.TXT CHECK --- Pramika
     if not compliance.can_fetch(curr_url):
@@ -71,7 +73,8 @@ while not frontier.empty() and count < 1000:
     
     # If 'noindex', we don't save the file
     if not meta_rules["noindex"]:
-        with open(f"pages/page_{count}.html", "w", encoding="utf-8") as save:
+        # with open(f"pages/page_{count}.html", "w", encoding="utf-8") as save:
+        with open(f"{output_dir}/page_{count}.html", "w", encoding="utf-8") as save:
             save.write(html)
             count += 1 
 
