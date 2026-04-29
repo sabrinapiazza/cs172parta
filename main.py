@@ -7,18 +7,33 @@ from bs4 import BeautifulSoup
 from compliance import ComplianceManager
 import requests
 import os
+import sys
 
 #advithi
 frontier = Queue()
 visited = set() 
 seed_list = []
-os.makedirs("pages", exist_ok=True)
+
+#making this into system argument
+#os.makedirs("pages", exist_ok=True)
+
+if len(sys.argv) != 5:
+    print("Usage: ./crawler.sh <seed-file> <num-pages> <hops-away> <output-dir>")
+    sys.exit(1)
+
+seed_file = sys.argv[1]
+max_pages = int(sys.argv[2])
+max_hops = int(sys.argv[3])
+output_dir = sys.argv[4]
+
+os.makedirs(output_dir, exist_ok=True)
 
 # used for robots.txt check - Pramika 
 compliance = ComplianceManager()
 
 #grabbing all the urls from the seed.txt file
-with open("seed.txt", "r") as file_urls:
+#for deployment type seed.txt when running as specified above
+with open(seed_file, "r") as file_urls:
     for url_line in file_urls:
         indiv_url = url_line.strip() 
         if indiv_url: 
@@ -29,9 +44,11 @@ with open("seed.txt", "r") as file_urls:
 
 # load the urls from seed list into frontier
 for i_url in seed_list:
-    frontier.put(i_url)
+    # 0 is the hop count!
+    frontier.put((i_url,0))
     #add link to visted list
     visited.add(i_url)
+
 
 #while the frontier isn't empty & max_count < threshold,
 count = 0
@@ -95,9 +112,10 @@ while not frontier.empty() and count < 1000:
 
         # ensures there are no duplicates
         if href not in visited:
-            print("clean url:", href)
-            frontier.put(href)
-            visited.add(href)
+            if hop + 1 <= max_hops:
+                print("clean url:", href)
+                frontier.put((href, hop + 1))
+                visited.add(href)
 
 
 #sabrina
