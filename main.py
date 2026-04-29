@@ -78,7 +78,7 @@ while not frontier.empty() and count < 1000:
         href, _ = urldefrag(href)
 
         # sorts out only links with http
-        if not href.startswith("http://"):
+        if not href.startswith("https://"): 
             continue
 
         # removes self paths 
