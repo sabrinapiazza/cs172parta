@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CS 172 Search Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>CS 172 Search Engine</h1>
+
+        <form method="POST">
+            <input type="text" name="query" placeholder="Enter search..." value="{{ query }}">
+            <button type="submit">Search</button>
+        </form>
+
+        {% if query %}
+            <p class="count">Showing top results for: <strong>{{ query }}</strong></p>
+        {% endif %}
+
+        {% for result in results %}
+            <div class="result">
+                <h2>{{ result.title }}</h2>
+                <p class="url">{{ result.url }}</p>
+                <p>{{ result.body }}...</p>
+                <p class="score">Score: {{ result.score }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+woosh/__init__.py
+woosh/main.py
+woosh.egg-info/PKG-INFO
+woosh.egg-info/SOURCES.txt
+woosh.egg-info/dependency_links.txt
+woosh.egg-info/entry_points.txt
+woosh.egg-info/not-zip-safe
+woosh.egg-info/top_level.txt
